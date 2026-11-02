@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>My Fit</title><meta name="theme-color" content="#2563eb">
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div><h1>My Fit</h1><small id="today"></small></div>
+<div class="clock" id="clock">--:--:--</div>
+<button class="ic" id="themeBtn" title="Dark / light">☾</button><div class="ic av" id="avatar">?</div></header>
+<main>
+<section id="home" class="on">
+ <h2 id="hello" class="hello"></h2><input type="date" id="date">
+ <div class="card ringbox"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="bg"/><circle cx="60" cy="60" r="52" class="fg" id="ring"/></svg>
+ <div class="rtxt"><b id="steps">0</b><span id="stepsOf">of 8000 steps</span></div></div>
+ <div class="grid"><div class="card"><small>Active time</small><b id="mins">0</b> min<div class="bar"><i id="minBar"></i></div><small id="minOf"></small></div>
+ <div class="card"><small>Habits done</small><b id="hdone">0/0</b><div class="bar"><i id="habBar"></i></div></div></div>
+ <h2>Activity log</h2><div id="acts"></div>
+</section>
+<section id="train">
+ <div class="card">
+ <div class="seg" id="typeSeg"><button data-t="walking" class="on">Walking</button><button data-t="workout">Workout</button><button data-t="yoga">Yoga</button></div>
+ <input id="aname" placeholder="Name (e.g. Morning walk, Push-ups, Sun salutation)">
+ <div class="seg" id="modeSeg"><button data-m="up" class="on">Stopwatch</button><button data-m="down">Countdown</button></div>
+ <input type="number" id="goalMin" min="1" value="20" placeholder="Countdown minutes" style="display:none">
+ <div class="tdisp" id="tdisp">00:00:00</div>
+ <p class="hint" id="stepHint">Steps are estimated from walking time.</p>
+ <div class="row"><button class="btn" id="startBtn">Start</button><button class="btn ghost" id="saveBtn">Stop &amp; save</button></div>
+ <div class="row"><input type="number" id="manMin" placeholder="Or add minutes manually"><button class="btn ghost" id="manBtn">Add</button></div>
+ </div>
+</section>
+<section id="habits">
+ <div id="hlist"></div><div class="card"><h2>Quick add</h2><div id="chips" class="chips"></div></div>
+ <div class="card"><h2>Add your own habit</h2><input id="hname" placeholder="Habit name">
+ <label>Reminder time (optional)<input type="time" id="htime"></label><button class="btn" id="hadd">Add habit</button></div>
+</section>
+<section id="month">
+ <input type="month" id="ym"><div class="grid" id="msum"></div>
+ <h2>Steps per day</h2><div class="chart" id="chart"></div>
+ <div id="mtable"></div>
+</section>
+<section id="settings">
+ <div class="card"><h2>Daily targets</h2>
+ <label>Steps target<input type="number" id="sTarget"></label>
+ <label>Active minutes target<input type="number" id="mTarget"></label>
+ <label>Steps per walking minute<input type="number" id="spm"></label>
+ <p class="hint">Average walking is 90–120 steps/min. Walking 30 min at 100 = 3000 steps.</p>
+ <button class="btn" id="saveCfg">Save</button></div>
+ <div class="card"><h2>Notifications</h2><p class="hint">Timer alerts, habit reminders and goal reached. Keep this tab open.</p><button class="btn" id="notifBtn">Enable notifications</button></div>
+ <div class="card"><h2>Account</h2><p class="hint" id="acct"></p><button class="btn ghost" id="logout">Log out</button></div>
+</section>
+</main>
+<nav id="nav"><button data-s="home" class="on">Home</button><button data-s="train">Train</button><button data-s="habits">Habits</button><button data-s="month">Month</button><button data-s="settings">Setup</button></nav>
+<div id="auth"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i>
+ <div class="authcard"><div class="logo">💪</div><h1>My Fit</h1><p class="hint">Workouts, yoga, steps and habits in one place.</p>
+ <div class="seg" id="authTabs"><button data-m="login" class="on">Log in</button><button data-m="register">Create account</button></div>
+ <input id="uname" placeholder="Your name" style="display:none" autocomplete="name">
+ <input id="email" type="email" placeholder="Email" autocomplete="email">
+ <input id="pass" type="password" placeholder="Password (6+ characters)" autocomplete="current-password">
+ <p id="autherr" class="err"></p><button class="btn" id="authBtn" style="width:100%">Log in</button></div></div>
+<div id="toast"></div>
+<script src="app.js"></script></body></html>
